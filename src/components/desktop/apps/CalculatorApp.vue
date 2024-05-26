@@ -5,7 +5,12 @@
         <div class="results">
           {{ computation }}
         </div>
-        <input type="text" class="input" ref="calcInput" @input="validateInput($event.target)" />
+        <input
+          type="text"
+          class="input"
+          ref="calcInput"
+          @input="validateInput($event.target as HTMLInputElement)"
+        />
       </div>
       <div class="numberpad-grid">
         <div class="pad-item delete" @click="clearInput">C</div>
@@ -40,56 +45,22 @@
 import type { OpenedApp } from '@/stores/types'
 import AppWrapper from './shared/AppWrapper.vue'
 import { ref, type Ref } from 'vue'
+import { useCalculatorAppStore } from './stores/calculatorApp'
+import { storeToRefs } from 'pinia'
 
-var computation = ref('')
-var result = ref(false)
-var calcInput: Ref<HTMLInputElement | null> = ref(null)
+var calcInput: Ref<HTMLInputElement> = ref(null!)
+const calculatorAppStore = useCalculatorAppStore()
+
+const { computation } = storeToRefs(calculatorAppStore)
 
 const props = defineProps<{
   app: OpenedApp
 }>()
 
-const validateInput = (element: HTMLInputElement) => {
-  const allowedChars = /^[0-9+\-*/%()=.]*$/
-  const operationalChar = /[\d%)]\s*[+\-*/]/
-  const equalChar = /[\d%)]\s*[=]/
-
-  if (!allowedChars.test(element.value)) {
-    element.value = element.value.slice(0, -1)
-  }
-  if (operationalChar.test(element.value)) {
-    if (result.value) {
-      computation.value = ''
-      result.value = false
-    }
-    computation.value += element.value
-    element.value = ''
-  }
-  if (equalChar.test(element.value)) {
-    computation.value += element.value.replace('=', '')
-    element.value = eval(computation.value.replace(/%/g, ''))
-    element.value += computation.value.includes('%') ? '%' : ''
-    result.value = true
-  }
-}
-
-const clearInput = () => {
-  if (!calcInput.value) return
-  result.value = false
-  computation.value = ''
-  calcInput.value.value = ''
-}
-
-const addToInput = (char: string) => {
-  if (!calcInput.value) return
-  calcInput.value.value += char
-  validateInput(calcInput.value)
-}
-
-const addSignChange = () => {
-  if (!calcInput.value) return
-  calcInput.value.value = `-(${calcInput.value.value})`
-}
+const validateInput = (element: HTMLInputElement) => calculatorAppStore.validateInput(element)
+const clearInput = () => calculatorAppStore.clearInput(calcInput.value)
+const addToInput = (char: string) => calculatorAppStore.addToInput(calcInput.value, char)
+const addSignChange = () => calculatorAppStore.addSignChange(calcInput.value)
 </script>
 
 <style scoped>

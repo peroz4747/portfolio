@@ -5,16 +5,13 @@ import cloneDeep from 'lodash.clonedeep'
 import { appList } from './appList'
 /**
  *
- * NAME IDEAS:
- * NexaOS
  * GinaOS
  * TODO:
- * dragging starts to lag exponentially
- * start menu icon
+ * maybe sound and other dog effects?
  *
  * BUGS:
  * transitions should be set on minimise and fullscreen
- *
+ * dragging starts to lag exponentially
  */
 
 export const useDesktopAppStore = defineStore('desktopApp', {
@@ -87,8 +84,7 @@ export const useDesktopAppStore = defineStore('desktopApp', {
     },
     handleOpenApp(openedApp: App): void {
       if (!this.desktopGridRef) return
-      const openedAppIndex = this.appList.findIndex((app) => app.id === openedApp.id)
-      const appCopy = this.appList[openedAppIndex]
+      const appCopy = { ...openedApp }
 
       const reactiveAppCopy = reactive({
         id: this.openedAppWindows.length,
@@ -107,7 +103,8 @@ export const useDesktopAppStore = defineStore('desktopApp', {
         transitioned: false,
         prevAppSizeAndPosition: null,
         dragDiff: null,
-        resizeObserver: null
+        resizeObserver: null,
+        nestedApps: appCopy.nestedApps
       }) as OpenedApp
 
       this.openedAppWindows.push(reactiveAppCopy)

@@ -47,7 +47,7 @@ const hadnleAppDrag = (event: DragEvent) =>
   desktopAppStore.handleAppMove(props.app, event.clientX, event.clientY)
 const handleDragEnd = () => desktopAppStore.handleDragEnd(props.app)
 
-watch(props.app, (newdApp, oldApp) => {
+watch(props.app, (newdApp) => {
   if (!appWrapper.value) return
   if (newdApp.transitioned) {
     appWrapper.value.style.width = newdApp.size.width
@@ -85,6 +85,7 @@ onUnmounted(() => {
 .app-content-wrapper {
   height: calc(100% - 30px);
   width: 100%;
+  overflow: auto;
 }
 .unopened {
   width: 1px;

@@ -33,6 +33,7 @@ const getStartMenuApps = computed(() => desktopAppStore.getStartMenuApps)
   width: fit-content;
   height: fit-content;
   background: rgb(68, 68, 68);
+  display: inline-grid;
 }
 .start-menu-item {
   padding: 15px 30px;

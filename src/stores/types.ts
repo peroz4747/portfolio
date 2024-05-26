@@ -22,6 +22,7 @@ export type App = {
     left: string
   } | null
   origin: Origin
+  nestedApps?: App[]
 }
 
 export type OpenedApp = App & {
