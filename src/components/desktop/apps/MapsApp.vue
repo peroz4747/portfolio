@@ -23,30 +23,34 @@ import { LMap, LGeoJson, LTileLayer } from '@vue-leaflet/vue-leaflet'
 import 'leaflet/dist/leaflet.css'
 import AppWrapper from './shared/AppWrapper.vue'
 import type { OpenedApp } from '@/stores/types'
+import type { FeatureCollection, GeoJsonObject } from 'geojson'
+import { circleMarker, LatLng } from 'leaflet'
 
+// Define the props
 const props = defineProps<{
   app: OpenedApp
 }>()
 
+// Define reactive properties
 const zoom = ref(7)
 
-const geojson = ref({
+// Initialize GeoJSON data
+const geojson = ref<FeatureCollection>({
   type: 'FeatureCollection',
   features: [
     // Your GeoJSON features here
   ]
 })
 
+// Initialize GeoJSON options
 const geojsonOptions = ref({
-  // Options that don't rely on Leaflet methods.
+  pointToLayer: (feature: GeoJsonObject, latLng: LatLng) => circleMarker(latLng, { radius: 8 })
 })
 
-onMounted(async () => {
-  // Load Leaflet components only in client-side
-  const { circleMarker } = await import('leaflet/dist/leaflet-src.esm')
-
-  // Use the Leaflet circleMarker function in the geojsonOptions
-  geojsonOptions.value.pointToLayer = (feature, latLng) => circleMarker(latLng, { radius: 8 })
+// Ensure options are set on component mount
+onMounted(() => {
+  geojsonOptions.value.pointToLayer = (feature: GeoJsonObject, latLng: LatLng) =>
+    circleMarker(latLng, { radius: 8 })
 })
 </script>
 

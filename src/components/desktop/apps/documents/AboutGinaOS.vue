@@ -1,5 +1,5 @@
 <template>
-  <document-reader-app>
+  <document-reader-app :app="app">
     <div>
       <header>
         <h1>About GinaOS</h1>
@@ -50,7 +50,14 @@
 </template>
 
 <script setup lang="ts">
+import type { OpenedApp } from '@/stores/types'
 import DocumentReaderApp from '../shared/DocumentReaderApp.vue'
+
+const props = defineProps<{
+  app: OpenedApp
+}>()
+
+const app = props.app
 </script>
 
 <style scoped>

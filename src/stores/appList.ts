@@ -50,7 +50,7 @@ class App {
     this.component = markRaw(component)
     this.position = null
     this.origin = origin
-    this.nestedApps = nestedApps ?? null
+    this.nestedApps = nestedApps ?? []
   }
 }
 

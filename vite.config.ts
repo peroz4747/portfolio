@@ -1,5 +1,4 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -13,12 +12,18 @@ export default defineConfig({
     vueJsx(),
     VueDevTools(),
     stringPlugin({
-      include: '**/*.html'
+      include: '**/*.html',
+      exclude: ['index.html', 'src/components/desktop/apps/stores/emails/Welcome.html'] // Exclude specific files
     })
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  build: {
+    rollupOptions: {
+      external: ['geojson'] // Mark geojson as external
     }
   }
 })

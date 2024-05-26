@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import welcome from './emails/Welcome.html'
+import { welcome } from './emails/Welcome'
 
 export interface Email {
   id: number

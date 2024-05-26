@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
+    "@types/geojson": "^7946.0.14",
     "axios": "^1.7.2",
     "lodash": "^4.17.21",
     "lodash.clonedeep": "^4.5.0",
