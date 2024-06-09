@@ -85,7 +85,6 @@ onUnmounted(() => {
 .app-content-wrapper {
   height: calc(100% - 30px);
   width: 100%;
-  overflow: auto;
 }
 .unopened {
   width: 1px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="start-menu">
+  <div class="start-menu" ref="startMenu">
     <div
       class="start-menu-item"
       v-for="app in getStartMenuApps"
@@ -17,12 +17,28 @@
 <script setup lang="ts">
 import { useDesktopAppStore } from '@/stores/desktopApp'
 import type { App } from '@/stores/types'
-import { computed } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 
 const desktopAppStore = useDesktopAppStore()
 
 const handleClickApp = (app: App) => desktopAppStore.handleOpenApp(app)
 const getStartMenuApps = computed(() => desktopAppStore.getStartMenuApps)
+const startMenu = ref<HTMLElement | null>(null)
+
+const handleClickOutside = (event: MouseEvent) => {
+  const target = event.target as HTMLElement // Change Node to HTMLElement
+  if (startMenu.value && !startMenu.value.contains(target) && !target.closest('.sm-img-wrapper')) {
+    desktopAppStore.startMenuOpened = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <style scoped>
@@ -30,6 +46,7 @@ const getStartMenuApps = computed(() => desktopAppStore.getStartMenuApps)
   position: absolute;
   left: 0;
   bottom: 50px;
+  min-width: 250px;
   width: fit-content;
   height: fit-content;
   background: rgb(68, 68, 68);

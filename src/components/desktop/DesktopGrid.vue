@@ -2,12 +2,14 @@
   <div class="desktop">
     <desktop-app-grid />
     <desktop-navigation-bar />
+    <desktop-contact />
   </div>
 </template>
 
 <script setup lang="ts">
 import DesktopNavigationBar from './desktop-navigation/DesktopNavigationBar.vue'
 import DesktopAppGrid from './desktop-grid/DesktopAppGrid.vue'
+import DesktopContact from './desktop-grid/DesktopContact.vue'
 </script>
 
 <style scoped>

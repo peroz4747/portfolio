@@ -1,8 +1,8 @@
 <template>
-  <app-wrapper :app="props.app" :width="450" :height="500">
+  <app-wrapper :app="props.app" :width="600" :height="500">
     <div class="document-reader-wrapper">
       <div class="document-reader">
-        <div class="document-content">
+        <div class="document-content" ref="slotContainer">
           <slot></slot>
         </div>
       </div>
@@ -13,10 +13,41 @@
 <script setup lang="ts">
 import type { OpenedApp } from '@/stores/types'
 import AppWrapper from './AppWrapper.vue'
+import { onMounted, ref } from 'vue'
+import { nextTick } from 'process'
 
 const props = defineProps<{
   app: OpenedApp
 }>()
+
+const slotContainer = ref<HTMLElement | null>(null)
+
+const speak = (text: string) => {
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text)
+    window.speechSynthesis.speak(utterance)
+  } else {
+    console.error('Speech Synthesis not supported')
+  }
+}
+
+const extractTextFromHTML = (html: HTMLElement) => {
+  const tempDiv = document.createElement('div')
+  tempDiv.innerHTML = html.innerHTML
+  return tempDiv.textContent || ''
+}
+
+onMounted(() => {
+  nextTick(() => {
+    console.log(slotContainer.value)
+    if (slotContainer.value) {
+      const textContent = extractTextFromHTML(slotContainer.value)
+      if (textContent) {
+        speak(textContent)
+      }
+    }
+  })
+})
 </script>
 
 <style scoped>
