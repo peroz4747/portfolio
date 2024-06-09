@@ -26,28 +26,21 @@ import type { OpenedApp } from '@/stores/types'
 import type { FeatureCollection, GeoJsonObject } from 'geojson'
 import { circleMarker, LatLng } from 'leaflet'
 
-// Define the props
 const props = defineProps<{
   app: OpenedApp
 }>()
 
-// Define reactive properties
 const zoom = ref(7)
 
-// Initialize GeoJSON data
 const geojson = ref<FeatureCollection>({
   type: 'FeatureCollection',
-  features: [
-    // Your GeoJSON features here
-  ]
+  features: []
 })
 
-// Initialize GeoJSON options
 const geojsonOptions = ref({
   pointToLayer: (feature: GeoJsonObject, latLng: LatLng) => circleMarker(latLng, { radius: 8 })
 })
 
-// Ensure options are set on component mount
 onMounted(() => {
   geojsonOptions.value.pointToLayer = (feature: GeoJsonObject, latLng: LatLng) =>
     circleMarker(latLng, { radius: 8 })
@@ -55,7 +48,6 @@ onMounted(() => {
 </script>
 
 <style>
-/* Ensure the map container takes the full size of its parent */
 #map {
   height: 100%;
   width: 100%;

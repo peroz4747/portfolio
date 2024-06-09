@@ -83,6 +83,7 @@ export const useDesktopAppStore = defineStore('desktopApp', {
       }
     },
     handleOpenApp(openedApp: App): void {
+      this.startMenuOpened = false
       if (!this.desktopGridRef) return
       const appCopy = { ...openedApp }
 
