@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const downloadPdf = async () => {
   try {
-    const response = await fetch('./Peter Zupanc - CV (EN).pdf')
+    const response = await fetch('/Peter Zupanc - CV (EN).pdf')
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
