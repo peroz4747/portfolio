@@ -139,7 +139,7 @@ export const appList = [
   new App('Skills', SkillsIcon, SkillsShowcase, Origin.STARTMENU),
   new App('Testimonials', TestimonialsIcon, TestimonialsShowcase, Origin.STARTMENU),
   new App('Achievements', AchievementsIcon, AchievementsShowcase, Origin.STARTMENU),
-  createShareableApp('Hobbies', Origin.STARTMENU),
+  // createShareableApp('Hobbies', Origin.STARTMENU),
   new App('Download CV', CVIcon, DownloadCV, Origin.STARTMENU),
   new App('Calculator', CalculatorIcon, CalculatorApp, Origin.DESKTOP),
   new App('Notepad', NotepadIcon, NotepadApp, Origin.DESKTOP),
@@ -148,7 +148,7 @@ export const appList = [
   new App('Browser', BrowserIcon, BrowserApp, Origin.DESKTOP),
   new App('Maps', MapsIcon, MapsApp, Origin.DESKTOP),
   createShareableApp('Projects', Origin.DESKTOP),
-  createShareableApp('Games', Origin.DESKTOP),
-  createShareableApp('Hobbies', Origin.DESKTOP)
+  createShareableApp('Games', Origin.DESKTOP)
+  // createShareableApp('Hobbies', Origin.DESKTOP)
   // new App('Terminal', TerminalIcon, TerminalApp, Origin.DESKTOP)
 ]
