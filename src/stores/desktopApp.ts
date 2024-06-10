@@ -172,7 +172,7 @@ export const useDesktopAppStore = defineStore('desktopApp', {
         left: '0px'
       }
     },
-    hadnleAppClose(app: OpenedApp): void {
+    handleAppClose(app: OpenedApp): void {
       this.logHistory(app, EventTypes.CLOSED)
       const appIndex = this.openedAppWindows.findIndex((openedApp) => openedApp.id === app.id)
       this.openedAppWindows.splice(appIndex, 1)
