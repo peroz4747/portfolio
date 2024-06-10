@@ -9,10 +9,16 @@
       <div class="loading-text" ref="loadingText">
         <h3>LOADING ...</h3>
         <p>
-          Welcome to my personal portfolio project inspired by my dog Gina with goal to showcase my
-          development skills
+          Welcome to my personal portfolio project inspired by my dog Gina with the goal to showcase
+          my development skills
         </p>
       </div>
+    </div>
+    <div class="mobile-message">
+      <p>
+        While the app will still work, I recommend visiting the site on a desktop instead for a more
+        streamlined experience.
+      </p>
     </div>
   </div>
 </template>
@@ -83,7 +89,6 @@ onMounted(() => {
 
 .loading-text {
   width: 300px;
-  margin-left: 125px;
   transition: opacity 1s;
 }
 
@@ -119,6 +124,7 @@ h3 {
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
+    margin-right: 250px;
   }
   100% {
     transform: rotate(1080deg);
@@ -140,6 +146,28 @@ h3 {
   }
   100% {
     opacity: 0;
+  }
+}
+
+.mobile-message {
+  display: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  color: #000000;
+  text-align: center;
+  margin-top: 20px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  width: 80%;
+  background: yellowgreen;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .mobile-message {
+    display: block;
   }
 }
 </style>
