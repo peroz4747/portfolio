@@ -1,6 +1,6 @@
 <template>
-  <desktop-grid v-if="desktopLoaded"></desktop-grid>
-  <loading-screen v-else></loading-screen>
+  <desktop-grid></desktop-grid>
+  <loading-screen v-if="!desktopLoaded"></loading-screen>
 </template>
 
 <script setup lang="ts">
