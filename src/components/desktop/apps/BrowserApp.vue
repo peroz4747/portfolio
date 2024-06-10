@@ -7,6 +7,7 @@
         <button @click="loadUrl">Search</button>
       </div>
       <ul class="results">
+        <img v-if="loading" class="results-spinner" src="../../../assets/results_loading.gif" />
         <li v-for="result in searchResults" :key="result.link" class="result-item">
           <a :href="result.link" target="_blank">{{ result.title }}</a>
           <p>{{ result.snippet }}</p>
@@ -25,8 +26,10 @@ import axios from 'axios'
 const props = defineProps<{ app: OpenedApp }>()
 const url = ref('')
 const searchResults = ref<any[]>([])
+const loading = ref(false)
 
 const loadUrl = async () => {
+  loading.value = true
   try {
     const response = await axios.get('/.netlify/functions/search', {
       params: {
@@ -36,6 +39,8 @@ const loadUrl = async () => {
     searchResults.value = response.data.items
   } catch (error) {
     console.error('Error fetching search results:', error)
+  } finally {
+    loading.value = false
   }
 }
 </script>
@@ -112,5 +117,10 @@ ul.results {
 .result-item p {
   margin: 5px 0 0;
   color: #666;
+}
+
+.results-spinner {
+  margin: auto;
+  display: block;
 }
 </style>
