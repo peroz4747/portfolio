@@ -16,7 +16,7 @@ import { appList } from './appList'
 
 export const useDesktopAppStore = defineStore('desktopApp', {
   state: (): State => ({
-    desktopLoaded: true,
+    desktopLoaded: false,
     appList,
     draggedItem: null,
     openedAppWindows: [],
