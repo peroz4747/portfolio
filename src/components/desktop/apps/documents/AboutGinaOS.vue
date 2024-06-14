@@ -27,11 +27,7 @@
       <section id="technologies">
         <h2>Technologies Used</h2>
         <ul>
-          <li>HTML, CSS, and JavaScript for the front-end</li>
-          <li>React.js for building the user interface</li>
-          <li>Node.js and Express for the back-end</li>
-          <li>MongoDB for database management</li>
-          <li>Webpack for module bundling</li>
+          <li>Vue.js with TypeScript for building the user interface</li>
         </ul>
       </section>
 
@@ -40,9 +36,9 @@
         <p>The development of GinaOS involved several stages:</p>
         <ul>
           <li>Planning and Design: Outlining the features and creating wireframes</li>
-          <li>Front-end Development: Building the user interface with Vue + Typescript</li>
+          <li>Front-end Development: Building the user interface with Vue + TypeScript</li>
           <li>Testing: Conducting thorough testing to ensure a smooth user experience</li>
-          <li>Deployment: Deploying the application to a Netlify for public access</li>
+          <li>Deployment: Deploying the application to Netlify for public access</li>
         </ul>
       </section>
     </div>
