@@ -24,6 +24,9 @@
           </li>
           <li>Mentored and managed new hires, reducing onboarding time by 20%</li>
           <li>Named ROY for my efficiency in handling tasks at Celtra</li>
+          <li>Successfully completed Slovenian Armed Forces Officer School and earned a commission as an officer</li>
+          <li>Awarded the ceremonial Officer's Bayonet upon commissioning</li>
+          <li>Transitioned from the private IT sector to a leadership role within the Slovenian Armed Forces</li>
         </ul>
       </section>
 
@@ -131,6 +134,11 @@
             rate of over 95%
           </li>
           <li>Improved team workflows by developing custom scripts and tools like workloggers</li>
+          <li>Built and maintain a personal homelab environment using Linux, Docker, Proxmox and self-hosted services</li>
+          <li>Continuously expand knowledge in cybersecurity, networking and systems administration through independent study and hands-on projects</li>
+          <li>Developed several personal software projects and web applications outside of professional work</li>
+          <li>Maintain active interest in software-defined radio (SDR) and communications technologies</li>
+          <li>Regularly participate in technical labs and self-learning exercises related to cybersecurity and infrastructure management</li>
         </ul>
       </section>
     </div>

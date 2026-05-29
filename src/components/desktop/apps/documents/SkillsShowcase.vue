@@ -41,59 +41,55 @@ interface SkillCategory {
 
 const skills = ref<SkillCategory[]>([
   {
-    title: 'Technical Skills',
+    title: 'Military & Leadership',
     items: [
-      { name: 'Java', level: 8 },
-      { name: 'JavaScript', level: 8 },
-      { name: 'HTML', level: 9 },
-      { name: 'CSS', level: 8 },
-      { name: 'SQL (Postgresql)', level: 7 },
-      { name: 'Angular', level: 7 },
-      { name: 'React', level: 7 },
-      { name: 'Vue', level: 7 },
-      { name: 'Pinia', level: 8 },
-      { name: 'Redux', level: 6 },
-      { name: 'Spring (Spring Boot, Spring Junit)', level: 7 },
-      { name: 'Docker', level: 6 },
-      { name: 'Jenkins', level: 6 },
+      { name: 'Personnel Leadership', level: 8 },
+      { name: 'Operational Planning', level: 7 },
+      { name: 'Risk Assessment', level: 7 },
+      { name: 'Training & Mentoring', level: 8 },
+      { name: 'Communications Systems', level: 8 }
+    ]
+  },
+  {
+    title: 'Cybersecurity & Infrastructure',
+    items: [
+      { name: 'Linux', level: 8 },
+      { name: 'Networking', level: 7 },
+      { name: 'Docker', level: 7 },
       { name: 'Git', level: 8 },
-      { name: 'WordPress', level: 7 },
-      { name: 'Zendesk', level: 9 }
+      { name: 'Virtualization', level: 7 },
+      { name: 'Homelab Administration', level: 8 }
     ]
   },
   {
     title: 'Software Development',
     items: [
-      { name: 'Full-stack development', level: 8 },
-      { name: 'Custom solution development', level: 8 },
-      { name: 'Debugging', level: 9 },
-      { name: 'Internal tool development', level: 7 }
+      { name: 'Java', level: 8 },
+      { name: 'JavaScript', level: 8 },
+      { name: 'Python', level: 7 },
+      { name: 'SQL', level: 7 },
+      { name: 'Spring Boot', level: 7 },
+      { name: 'Full-Stack Development', level: 8 }
     ]
   },
   {
-    title: 'Web Development',
+    title: 'Frontend Development',
     items: [
-      { name: 'Responsive UX/UI Design', level: 7 },
-      { name: 'Advanced JavaScript (jQuery)', level: 8 },
-      { name: 'SEO Optimization', level: 6 },
-      { name: 'Online Shop Management', level: 6 }
+      { name: 'HTML', level: 9 },
+      { name: 'CSS', level: 8 },
+      { name: 'Angular', level: 7 },
+      { name: 'React', level: 7 },
+      { name: 'Vue', level: 7 }
     ]
   },
   {
     title: 'Technical Support',
     items: [
-      { name: 'Handling complex support tickets', level: 9 },
-      { name: 'Technical documentation', level: 8 },
-      { name: 'Mentoring and training', level: 8 },
-      { name: 'Client support management', level: 8 }
-    ]
-  },
-  {
-    title: 'Project Management',
-    items: [
-      { name: 'Leading projects', level: 7 },
-      { name: 'Team workflow optimization', level: 7 },
-      { name: 'Mentoring and reviewing', level: 8 }
+      { name: 'Troubleshooting', level: 9 },
+      { name: 'Zendesk', level: 9 },
+      { name: 'Customer Support', level: 9 },
+      { name: 'Technical Documentation', level: 8 },
+      { name: 'Process Improvement', level: 8 }
     ]
   },
   {
@@ -101,8 +97,7 @@ const skills = ref<SkillCategory[]>([
     items: [
       { name: 'Slovenian', level: 10 },
       { name: 'English', level: 9 },
-      { name: 'Serbo-Croatian', level: 7 },
-      { name: 'Italian', level: 4 },
+      { name: 'Croatian', level: 7 },
       { name: 'German', level: 4 }
     ]
   }
